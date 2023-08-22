@@ -1,0 +1,33 @@
+.header {
+    /* top: 1px; */
+    top:0;
+    left: 0;
+    position:fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    width: 100%;
+    background-color: #F7F7F7;
+    z-index: 10;
+    /* background-color: #F2F5EA; */
+    /* background-color: white; */
+}
+.heading {
+    padding-left: 12px;
+}
+
+.headerImage {
+    width: 100%;
+    height: 25rem;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.headerImage img {
+    left: 0;
+    width: 110%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotateZ(-5deg) translateY(-3rem) translateX(-1.5rem);    
+}
