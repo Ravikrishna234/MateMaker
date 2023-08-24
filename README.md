@@ -1,1 +1,2 @@
 # MateMaker
+Accomodation finding application
