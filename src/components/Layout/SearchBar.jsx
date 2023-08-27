@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './SearchBar.module.css';
-
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function SearchBar(){
     const [enteredName, setEnteredName] = useState('');
     const [enteredCity, setEnteredCity] = useState('');
@@ -57,6 +58,9 @@ function SearchBar(){
                         <option value='>4'>4+</option>
 
                 </select>
+                <button type="submit" className={classes.searchButton}>
+                    <FontAwesomeIcon className={classes.searchGlass} icon={faMagnifyingGlass}></FontAwesomeIcon>    
+                </button>
                 {/* Implementation 2 */}
                 {/* <div className={classes.dropDownContainer}>
                     <div 
