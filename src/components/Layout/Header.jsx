@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Header.module.css';
 import headerImage from '../../assets/sample.jpg';
-
+// import SearchBar from './components/Layout/SearchBar';
 function Header() {
     return <React.Fragment>
         <header className={classes.header}>
