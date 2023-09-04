@@ -12,36 +12,23 @@ function SearchBar(){
     const [enteredRoomPerson, setEnteredRoomPerson] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
    useEffect(()=> {
-    if(enteredName.length){
+   	if(enteredName.length && !showNameDropDown){
         let filteredUniversities = universitiesData.filter((universityName)=> {
-            // console.log(enteredName+' '+universityName['institution']);
         return universityName['institution'].toLowerCase().includes(enteredName.toLowerCase());
         })
         
         setUSAinstitutionData(filteredUniversities);
-        // console.log(filteredUniversities);
         setShowNameDropDown(filteredUniversities.length > 0);
-        // console.log(showNameDropDown+'NameDropdown')
-        console.log(enteredName);
-        console.log(filteredUniversities);
-        console.log(showNameDropDown);
     } else {
         setUSAinstitutionData([]);
         setShowNameDropDown(false);
     }
-    // else {
-
-    // }
-    },[enteredName]);
+   },[enteredName]);
     const nameSelected = (name, event) => {
-        console.log(name);
-        event.stopPropagation();
-        // if(name.length) {
-            setEnteredName(name);
-            // setUSAinstitutionData([]);
-            setShowNameDropDown(false);
-        // }
-        // console.log(event.target.value);
+      // console.log(name);
+      event.stopPropagation();
+      setEnteredName(name);
+      setShowNameDropDown(false);
     }
     const nameChangeHandler = (event) => {
         setEnteredName(event.target.value);
@@ -55,7 +42,6 @@ function SearchBar(){
         setEnteredRoomPerson(event.target.value);
     }
 
-    // console.log(isDropdownOpen);
     const roomMateOptions = [
         {value: '', label: 'Preferred Roommate'},
         {value: '1', label: '1'},
@@ -76,7 +62,6 @@ function SearchBar(){
                         <input 
                             type="text"
                             placeholder="Enter University Name"
-                    // value={enteredCity}
                             value={enteredName}
                             onChange={nameChangeHandler} 
                             autoComplete='off' required/>
@@ -84,7 +69,6 @@ function SearchBar(){
                         {showNameDropDown && (
                             <ul>
                                 {usainstitutionData.map((university, index) => (
-                                    // <li key={index} onClick={()=> nameSelected(university.location)}>{`${index} ${university.institution}`}</li>
                                     <li key={index} onClick={(event)=> nameSelected(university.institution, event)}>{university.institution}</li>
                                 ))}
                             </ul>
@@ -92,29 +76,13 @@ function SearchBar(){
                     {/* </div> */}
                     </div>
                     </div>
-                    {/* </div> */}
-                    {/* 
-                        <div className="dropdown">
-                            <ul>
-                                {usainstitutionData.map((university, index) => (
-                                    <li key={index}>
-                                        {university.institution}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )} */}
-                <div className={classes.searchDate}>
+               <div className={classes.searchDate}>
                 <input 
                     type="date"
-                    // className={classes.searchInputDate}
                     value={enteredDate}
                     onChange={dateChangeHandler} />
                 </div>
                 {/* Implementation 1 */}
-                {/* <label htmlFor="selectOption" className={classes.selectDropdownLabel}> */}
-                    {/* Preferred Roommates */}
-                {/* </label> */}
                 <div className={classes.searchRoomPerson}>
                 <select
                     id="selectOption"
