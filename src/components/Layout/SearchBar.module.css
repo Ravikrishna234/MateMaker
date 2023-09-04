@@ -1,51 +1,136 @@
 .searchContainer {
     display: flex;
+    flex-direction: row;
     margin-top: 1rem;
     text-align: center;
     max-width: 75rem;
     width: 90%;
+    height: 100px;
     margin: auto;
     margin-top: -10rem;
     position: relative;
-    background-color: #383838;
+    /* background-color: #383838; */
+    background-color: transparent;
     color: white;
     border-radius: 14px;
     padding: 1rem;
     box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
+
 }
-input[type=text] {
-    width: 60%;
+
+.searchBox {
+    width: 50%;
     display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+    margin: 0;
+
+}
+.searchRow {
+    /* width: 50%; */
+    /*  */
+    /* align-items: center; */
+    /*  */
+    /* width: auto; */
+    /* margin: 0; */
+ }
+ input[type=text] {
+    width: 100%;
+    /* display: flex; */
     justify-content: flex-start;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    /* border: 1px solid #ccc; */
     box-sizing: border-box;
     resize: vertical;
+}
+/* .resultBox { */
+    /* display: flex; */
+    /* margin: 0; */
+    /* box-sizing: border-box; */
+    /* background-color: white; */
+
+/* } */
+ul{
+    /* display: block; */
+    height: auto;
+    border-top: 1px solid #999;
+    padding: 10px;
+    background-color: white;
+    overflow-y: scroll;
+}
+li{
+    list-style: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+    color: #000000;
+}
+ul li:hover{
+    background-color: #D6DBB2;
+}
+.searchDate {
+    width: 22.5%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    margin: 0;
+
 }
 input[type=date] {
-    width:20%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    width: 100%;
+    padding: 15px;
+    border: 0;
+    border-radius: 5px;
+    /* background-color: #D5D9CC; */
+    /* border: 1px solid #ccc; */
     box-sizing: border-box;
-    resize: vertical;
+    outline: 0;
 }
+/* .searchInputDate:selected{ */
+    /* background-color: #D5D9CC; */
+/* } */
+.searchRoomPerson {
+    width: 22.5%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    margin: 0;
+}
+
 .searchDropdown{
-    width: 20%;
-    padding:10px;
-    /* padding: 10px; */
-    border: 1px solid #ccc;
+    width: 100%;
+    padding:15px;
+    border: 0;
+    border-radius: 5px;
+    /* border: 1px solid #ccc; */
     box-sizing: border-box;
-    resize: vertical;
+    outline: 0;
+    /* resize: vertical; */
+}
+option:hover {
+    /* box-shadow: 0 0 10px 100px #1882A8 inset; */
+    background-color: yellow;
+}
+.searchFieldButton {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    margin: 0;
 }
 .searchButton {
-    width: 5%;
+    width: 95%;
     color: #F2F5EA;
     /* CO */
     background-color: #E75A7C;
-    padding:10px;
-    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding:15px;
+    /* border: 1px solid #ccc; */
     box-sizing: border-box;
     font-size: 1rem;
+    cursor: pointer;
+
 }
 .searchGlass {
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -58,6 +143,28 @@ input[type=date] {
     background-color: #E81E4F;
     /* font-size: 1.5rem; */
 }
+
+/* datalist {
+    position: absolute;
+    width: 60%;
+    background-color: white;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    z-index: 1;
+
+}
+datalist option {
+    padding: 5px;
+    cursor: pointer;
+  } */
+/* #data option {
+    padding: 5px;
+    cursor: pointer;
+  } */
+/* .dropdown {
+    height: auto;
+    width: 20%;
+} */
 /* .dropDownContainer {
     width:20%;
     border: 1px solid #ccc;
