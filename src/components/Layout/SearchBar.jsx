@@ -25,7 +25,9 @@ function SearchBar(){
         {value: '4', label: '4'},
         {value: '4+', label: '4+'}
     ]
-    const submitHandler = () => {}
+    const submitHandler = (event) => {
+        event.preventDefault();
+    }
     return (
     <React.Fragment>
         <form onSubmit={submitHandler}>
