@@ -1,2 +1,2 @@
 # MateMaker
-Accomodation finding application
+Accomodation finding application for international students
