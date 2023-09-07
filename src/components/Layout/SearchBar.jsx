@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import classes from './SearchBar.module.css';
 import { universitiesData } from '../contexts/USA_institutions.js'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -11,11 +11,19 @@ function SearchBar(){
     const [enteredDate, setEnteredDate] = useState('');
     const [enteredRoomPerson, setEnteredRoomPerson] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-   useEffect(()=> {
-   	if(enteredName.length && !showNameDropDown){
+
+    useEffect(()=> {
+   	if(enteredName.length){
+        setShowNameDropDown(true);
         let filteredUniversities = universitiesData.filter((universityName)=> {
-        return universityName['institution'].toLowerCase().includes(enteredName.toLowerCase());
-        })
+        const nameWithoutSpaces = universityName['institution'].replace(/\s/g, '').toLowerCase();
+        const enteredNameLower = enteredName.toLowerCase();
+  
+        return (
+            universityName['institution'].toLowerCase().includes(enteredNameLower.toLowerCase()) ||
+            nameWithoutSpaces.includes(enteredNameLower.toLowerCase())
+            );
+        });
         
         setUSAinstitutionData(filteredUniversities);
         setShowNameDropDown(filteredUniversities.length > 0);
@@ -23,10 +31,12 @@ function SearchBar(){
         setUSAinstitutionData([]);
         setShowNameDropDown(false);
     }
-   },[enteredName]);
+   },[enteredName, universitiesData]);
+
+
     const nameSelected = (name, event) => {
       // console.log(name);
-      event.stopPropagation();
+    //   event.stopPropagation();
       setEnteredName(name);
       setShowNameDropDown(false);
     }
