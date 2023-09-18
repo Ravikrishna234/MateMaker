@@ -62,6 +62,12 @@ function SearchBar(){
     ]
     const submitHandler = (event) => {
         event.preventDefault();
+        console.log({
+                'universityName':enteredName,
+                'fromDate': enteredDate,
+                'roomPerson': enteredRoomPerson
+            });
+    
     }
     return (
     <React.Fragment>
